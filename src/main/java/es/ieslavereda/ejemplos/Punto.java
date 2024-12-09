@@ -1,4 +1,4 @@
-package es.ieslavereda;
+package es.ieslavereda.ejemplos;
 
 public class Punto {
 
@@ -46,6 +46,18 @@ public class Punto {
     public void moverAbajo(int cantidad){
         if (cantidad>0)
             this.y-=cantidad;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+
+        if(obj == null) return false;
+
+        if(!(obj instanceof Punto)) return false;
+
+        Punto p = (Punto)obj;
+
+        return p.x == this.x && p.y == this.y;
     }
 
     @Override

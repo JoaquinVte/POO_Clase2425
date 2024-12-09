@@ -1,4 +1,4 @@
-package es.ieslavereda;
+package es.ieslavereda.ejemplos;
 
 public class Linea {
 
