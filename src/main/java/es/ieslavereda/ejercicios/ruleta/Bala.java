@@ -7,7 +7,7 @@ public class Bala {
 
     public Bala(){
         disparada=false;
-        valida= (int)(Math.random()*10)!=0;
+        valida= true;
     }
 
     public boolean percutar(){

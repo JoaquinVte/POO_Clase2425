@@ -3,17 +3,19 @@ package es.ieslavereda.ejercicios.ruleta;
 public class Main {
     public static void main(String[] args) {
 
-        Pistola p = new Pistola();
+        Jugador j0 = new Jugador("Juan");
+        Jugador j1 = new Jugador("Pedro");
 
-        p.recargar(new Bala());
-        p.girarTambor();
+        Game game = new Game(j0,j1);
 
-        System.out.println(p);
+        Jugador ganador = game.start();
 
-        for(int i=0;i<8;i++)
-            System.out.println(p.disparar());
+        System.out.println("Ganador: "+ganador.getNombre());
+        System.out.println(j0.isAlive());
+        System.out.println(j1.isAlive());
 
-        System.out.println(p);
+
+
 
     }
 }
