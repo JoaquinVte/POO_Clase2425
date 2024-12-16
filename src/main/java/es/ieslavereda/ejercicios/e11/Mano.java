@@ -25,12 +25,31 @@ public class Mano {
     }
 
     public int getPuntuacion(){
-        int puntuacion=0;
 
-        for(Carta c : cartas)
-            puntuacion+=c.getPuntuaciones()[0];
+        return getPuntuacion(0,0);
 
-        return puntuacion;
+    }
+
+    private int getPuntuacion(int index,int puntuacion){
+
+        if(puntuacion>21) return -1;
+
+        if(index==cartas.length)
+            return puntuacion;
+
+        Carta c = cartas[index];
+
+        if(c.getPuntuaciones().length==1)
+            return getPuntuacion(index+1, puntuacion+c.getPuntuaciones()[0]);
+
+        return Math.max(
+                getPuntuacion(index+1,puntuacion+c.getPuntuaciones()[0]),
+                getPuntuacion(index+1,puntuacion+c.getPuntuaciones()[1])
+        );
+
+
+
+
 
     }
 
