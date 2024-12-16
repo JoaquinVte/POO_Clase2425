@@ -1,6 +1,8 @@
 package es.ieslavereda.ejercicios.e11;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class Baraja {
 
@@ -49,6 +51,31 @@ public class Baraja {
         cartas = aux;
 
         return c;
+    }
+
+    public void cortar(){
+
+        int corte = (int)(Math.random()* cartas.length);
+
+        Carta[] aux = new Carta[cartas.length];
+
+        int j=0;
+
+        for(int i=corte;i< cartas.length;i++)
+            aux[j++]=cartas[i];
+
+        for(int i=0;i<corte;i++)
+            aux[j++]=cartas[i];
+
+        cartas=aux;
+
+    }
+
+
+    public void barajar(){
+
+        Collections.shuffle(Arrays.asList(cartas));
+
     }
 
     @Override

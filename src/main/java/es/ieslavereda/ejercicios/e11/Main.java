@@ -6,11 +6,14 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Baraja b = new Baraja();
-        for(int i=0;i<54;i++) {
-            System.out.println(b.obtenerCartaInferior());
-            System.out.println(b);
-        }
+
+
+        Jugador j1 = new Jugador("Manolo");
+        Jugador j2 = new Jugador("Juan");
+
+        Game game = new Game(j1,j2);
+        game.start();
+
 
     }
 }
