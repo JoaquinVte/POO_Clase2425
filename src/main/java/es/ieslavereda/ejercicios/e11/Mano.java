@@ -46,11 +46,6 @@ public class Mano {
                 getPuntuacion(index+1,puntuacion+c.getPuntuaciones()[0]),
                 getPuntuacion(index+1,puntuacion+c.getPuntuaciones()[1])
         );
-
-
-
-
-
     }
 
     @Override
