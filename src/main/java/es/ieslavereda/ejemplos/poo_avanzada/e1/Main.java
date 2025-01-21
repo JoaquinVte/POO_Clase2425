@@ -8,6 +8,8 @@ public class Main {
         Directivo d1 = new Directivo("121111","Carmen","Lopez Lopez",31,"Directora",Grado.DAW_SEGUNDO,Grado.SMR_SEGUNDO);
 
 
+
+
         System.out.println(a1);
         System.out.println(p1);
         System.out.println(p2);
