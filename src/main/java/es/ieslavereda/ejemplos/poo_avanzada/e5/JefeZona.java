@@ -38,7 +38,7 @@ public class JefeZona extends Empleado{
 
     public void addVendedor(Vendedor vendedor){
 
-        if(!containsClient(vendedor)){
+        if(!containsVendedor(vendedor)){
 
             Vendedor[] aux = Arrays.copyOf(vendedores,vendedores.length+1);
             aux[aux.length-1] = vendedor;
@@ -49,23 +49,23 @@ public class JefeZona extends Empleado{
     }
 
 
-    public void delCliente(String cliente){
+    public void delVendedor(Vendedor vendedor){
 
-        if(containsClient(cliente)){
+        if(containsVendedor(vendedor)){
 
-            String[] aux = new String[clientes.length-1];
+            Vendedor[] aux = new Vendedor[vendedores.length-1];
 
             int i=0;
-            for(String c : clientes)
-                if(!c.equalsIgnoreCase(cliente))
-                    aux[i++]=c;
+            for(Vendedor v : vendedores)
+                if(!v.equals(vendedor))
+                    aux[i++]=v;
 
-            clientes=aux;
+            vendedores=aux;
         }
 
     }
 
-    private boolean containsClient(Vendedor vededor){
+    private boolean containsVendedor(Vendedor vededor){
 
         int i=0;
         boolean encontrado = false;
