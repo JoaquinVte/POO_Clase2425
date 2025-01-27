@@ -7,14 +7,14 @@ public class Vendedor extends Empleado{
     private Coche coche;
     private String telfonoMovil;
     private String area;
-    private String[] clientes;
+    private ListaSEString clientes;
     private float porcentajeComision;
 
     public Vendedor(String nombre, String apellidos, String DNI, String dirección, String telefonoContacto, float salario, String area, String telfonoMovil,float porcentajeComision) {
         super(nombre, apellidos, DNI, dirección, telefonoContacto, salario);
         this.area = area;
         this.telfonoMovil = telfonoMovil;
-        clientes = new String[0];
+        clientes = new ListaSEString();
         this.porcentajeComision = porcentajeComision;
     }
 
@@ -29,7 +29,7 @@ public class Vendedor extends Empleado{
 
     public void addCliente(String cliente){
 
-        if(!containsClient(cliente)){
+        if(!clientes.contains(cliente)){
 
 //            String[] aux = new String[clientes.length+1];
 //            aux[0]=cliente;
@@ -37,10 +37,7 @@ public class Vendedor extends Empleado{
 //            for(int i=0;i< clientes.length;i++)
 //                aux[i+1]=clientes[i];
 
-            String[] aux = Arrays.copyOf(clientes,clientes.length+1);
-            aux[aux.length-1] = cliente;
-
-            clientes=aux;
+            clientes.addHead(cliente);
         }
 
     }
@@ -48,36 +45,26 @@ public class Vendedor extends Empleado{
 
     public void delCliente(String cliente){
 
-        if(containsClient(cliente)){
-
-            String[] aux = new String[clientes.length-1];
-
-            int i=0;
-            for(String c : clientes)
-                if(!c.equalsIgnoreCase(cliente))
-                    aux[i++]=c;
-
-            clientes=aux;
-        }
+        clientes.remove(cliente);
 
     }
 
-    private boolean containsClient(String cliente){
-
-        int i=0;
-        boolean encontrado = false;
-
-        while(i<clientes.length && !encontrado) {
-
-            if (clientes[i].equalsIgnoreCase(cliente))
-                encontrado=true;
-
-            i++;
-        }
-
-        return encontrado;
-
-    }
+//    private boolean containsClient(String cliente){
+//
+//        int i=0;
+//        boolean encontrado = false;
+//
+//        while(i<clientes.length && !encontrado) {
+//
+//            if (clientes[i].equalsIgnoreCase(cliente))
+//                encontrado=true;
+//
+//            i++;
+//        }
+//
+//        return encontrado;
+//
+//    }
 
     @Override
     public void incrementarSalario() {
