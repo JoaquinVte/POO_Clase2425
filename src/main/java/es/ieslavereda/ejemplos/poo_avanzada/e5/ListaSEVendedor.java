@@ -56,6 +56,60 @@ public class ListaSEVendedor {
         return info;
 
     }
+    public boolean contains(Vendedor vendedor) {
+
+        Nodo aux = head;
+
+//
+//        while (aux!=null && !aux.info.equalsIgnoreCase(cliente))
+//            aux=aux.next;
+//
+//
+//        return aux!=null;
+
+        boolean encontrado=false;
+
+        while (aux!=null && !encontrado){
+            encontrado = aux.info.equals(vendedor);
+            aux=aux.next;
+        }
+        return encontrado;
+
+    }
+
+    public void remove(Vendedor cliente) {
+
+        if(head!=null){
+
+
+            if(head.info.equals(cliente))
+                removeHead();
+            else if(head.next!=null){
+
+                Nodo aux1 = head;
+                Nodo aux2 = head.next;
+                boolean encontrado=false;
+
+                while (aux2!=null && !encontrado){
+
+                    if(aux2.info.equals(cliente))
+                        encontrado=true;
+                    else{
+                        aux1=aux2;
+                        aux2=aux2.next;
+                    }
+
+                }
+
+                if(encontrado){
+                    aux1.next = aux2.next;
+                }
+
+            }
+        }
+
+
+    }
 
     public Vendedor removeHead(){
 
