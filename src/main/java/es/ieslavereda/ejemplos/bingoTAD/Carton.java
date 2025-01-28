@@ -19,6 +19,30 @@ public class Carton {
         rellenar(cantidad,min,max);
     }
 
+    public boolean completo(){
+
+//        boolean completo = true;
+//
+//        for(Celda c : celdas)
+//            completo = c.isMarcado() && completo;
+//
+//        return completo;
+
+        int sinMarcar = 0;
+        int i =0;
+
+        while(sinMarcar==0 && i<celdas.size()){
+
+            if(!celdas.get(i).isMarcado())
+                sinMarcar++;
+
+            i++;
+        }
+
+        return sinMarcar==0;
+
+    }
+
     private void rellenar(Integer cantidad, Integer min, Integer max) {
         Celda c;
 

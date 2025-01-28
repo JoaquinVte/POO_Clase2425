@@ -9,16 +9,11 @@ public class Main {
 
         b.rellenar();
 
-        while(!b.isEmpty()){
+        while(!c.completo())
+            c.check(b.sacarBola());
 
-            bola = b.sacarBola();
-            c.check(bola);
-
-            System.out.println(bola);
-            System.out.println(c);
-
-        }
-
+        System.out.println(b);
+        System.out.println(c);
 
 
     }
