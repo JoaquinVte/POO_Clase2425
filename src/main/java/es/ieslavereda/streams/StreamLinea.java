@@ -14,6 +14,10 @@ public class StreamLinea {
 
         listarAlfabeticamente(paises);
 
+        List<Usuario> listaUsuarios = new ArrayList<>();
+
+        Collections.sort(listaUsuarios,Usuario.COMPARADOR_POR_NOMBRE);
+
 
 
     }
@@ -39,15 +43,17 @@ public class StreamLinea {
     }
 
     private static List<Pais> cargarPaises() {
+        List<Pais> paises = new ArrayList<>();
+
         try(BufferedReader br = new BufferedReader(
-                new FileReader("paises.txt"));
-            PrintWriter pw = new PrintWriter("xanadu.linea.txt")){
+                new FileReader("paises.txt"))
+            ){
 
             String linea;
             String nombrePais,nombreGrupo,nombreCancion;
-            List<Pais> paises = new ArrayList<>();
 
-            int i=1;
+
+
 
             while ((linea = br.readLine())!=null){
                 nombrePais=linea.split(";")[0];
@@ -60,35 +66,10 @@ public class StreamLinea {
 
 
 
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }try(BufferedReader br = new BufferedReader(
-                new FileReader("paises.txt"));
-             PrintWriter pw = new PrintWriter("xanadu.linea.txt")){
-
-            String linea;
-            String nombrePais,nombreGrupo,nombreCancion;
-            List<Pais> paises = new ArrayList<>();
-
-            int i=1;
-
-            while ((linea = br.readLine())!=null){
-                nombrePais=linea.split(";")[0];
-                nombreGrupo=linea.split(";")[1];
-                nombreCancion=linea.split(";")[2];
-
-                paises.add(new Pais(nombrePais,nombreGrupo,nombreCancion));
-
-            }
-            return paises;
-
-
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
+
+        return paises;
     }
 }
